@@ -19,7 +19,7 @@ class Sollution:
         res = res * s
         if res <mn or res > mm:
             res = 0
-
+#所得到的
         return res
             
 
