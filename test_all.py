@@ -4,6 +4,7 @@ import unittest
 import _9_palindrome_number
 import _10_regular_expression_matching
 import _11_container_with_most_water
+import _322_coin_change
 
 class TestForSolutions(unittest.TestCase):
     
@@ -32,4 +33,14 @@ class TestForSolutions(unittest.TestCase):
         ]
         for k, v in enumerate(case):
             self.assertEqual(
-                _11_container_with_most_water.Sollution().isMatch(v[0], v[1]), v[3])
+                _11_container_with_most_water.Sollution().isMatch(v[0], v[1]), v[2])
+
+    def test_322(self):
+        case = [
+             ([1, 2 , 5], 11, 3),
+             ([2, 4 , 7], 11, 2),
+             ([2, 4 , 7], 1, -1),
+        ]
+        for k, v in enumerate(case):
+            self.assertEqual(
+                _322_coin_change.Sollution().coinChange(v[0], v[1]), v[2])
