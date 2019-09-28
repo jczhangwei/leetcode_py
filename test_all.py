@@ -44,3 +44,15 @@ class TestForSolutions(unittest.TestCase):
         for k, v in enumerate(case):
             self.assertEqual(
                 _322_coin_change.Sollution().coinChange(v[0], v[1]), v[2])
+
+    def test_12(self):
+        import _12_integer_in_rome
+        case = [
+            (3, "III"),
+            (4, "IV"),
+            (9, "IX"),
+            (58, "LVIII"),
+            (1994, "MCMXCIV")
+        ]
+        for k, v in enumerate(case):
+            self.assertEqual(_12_integer_in_rome.Sollution().intToRoman(v[0]), v[1])
