@@ -6,30 +6,33 @@ import _10_regular_expression_matching
 import _11_container_with_most_water
 import _322_coin_change
 
+
 class TestForSolutions(unittest.TestCase):
-    
+
     def test_9_1(self):
         case = [
             (12312, False),
             (1221, True)
         ]
         for k, v in enumerate(case):
-            self.assertEqual(_9_palindrome_number.Sollution().isPalindrome(v[0]), v[1])
+            self.assertEqual(
+                _9_palindrome_number.Sollution().isPalindrome(v[0]), v[1])
 
     def test_11(self):
         case = [
-             ([1,8,6,2,5,4,8,3,7], 49)
+            ([1, 8, 6, 2, 5, 4, 8, 3, 7], 49)
         ]
         for k, v in enumerate(case):
-            self.assertEqual(_11_container_with_most_water.Sollution().maxArea(v[0]), v[1])
+            self.assertEqual(
+                _11_container_with_most_water.Sollution().maxArea(v[0]), v[1])
 
     def test_10(self):
         case = [
-             ("aa", "a*", True),
-             ("aa", "a", False),
-             ("ab", ".*", True),
-             ("aab", "c*a*b*", True),
-             ("mississippi", "mis*is*p*.", False),
+            ("aa", "a*", True),
+            ("aa", "a", False),
+            ("ab", ".*", True),
+            ("aab", "c*a*b*", True),
+            ("mississippi", "mis*is*p*.", False),
         ]
         for k, v in enumerate(case):
             self.assertEqual(
@@ -37,9 +40,9 @@ class TestForSolutions(unittest.TestCase):
 
     def test_322(self):
         case = [
-             ([1, 2 , 5], 11, 3),
-             ([2, 4 , 7], 11, 2),
-             ([2, 4 , 7], 1, -1),
+            ([1, 2, 5], 11, 3),
+            ([2, 4, 7], 11, 2),
+            ([2, 4, 7], 1, -1),
         ]
         for k, v in enumerate(case):
             self.assertEqual(
@@ -55,4 +58,15 @@ class TestForSolutions(unittest.TestCase):
             (1994, "MCMXCIV")
         ]
         for k, v in enumerate(case):
-            self.assertEqual(_12_integer_in_rome.Sollution().intToRoman(v[0]), v[1])
+            self.assertEqual(
+                _12_integer_in_rome.Sollution().intToRoman(v[0]), v[1])
+
+    def test_14(self):
+        import _14_longest_common_prefix
+        case = [
+            (["flower", "flow", "flight"], "fl"),
+            (["dog", "racecar", "car"], "")
+        ]
+        for k, v in enumerate(case):
+            self.assertEqual(
+                _14_longest_common_prefix.Sollution().longestCommonPrefix(v[0]), v[1])
