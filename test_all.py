@@ -70,3 +70,13 @@ class TestForSolutions(unittest.TestCase):
         for k, v in enumerate(case):
             self.assertEqual(
                 _14_longest_common_prefix.Sollution().longestCommonPrefix(v[0]), v[1])
+    
+    def test_15(self):
+        import _15_3_sum
+        case = [
+            ([-1, 0, 1, 2, -1, -4], [[-1, 0, 1], [-1, -1, 2]]),
+            ([0, 0, 0, 0], [0, 0, 0])
+        ]
+        for k, v in enumerate(case):
+            self.assertEqual(
+                _15_3_sum.Sollution().threeSum(v[0]), v[1])
