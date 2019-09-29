@@ -9,8 +9,6 @@ class Sollution:
         for k, n in enumerate(nums):
             if k > 0 and nums[k - 1] == n:
                 continue
-            if n >= 0:
-                break
         
             i = k + 1
             j = l - 1
