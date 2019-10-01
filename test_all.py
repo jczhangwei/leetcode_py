@@ -83,3 +83,16 @@ class TestForSolutions(unittest.TestCase):
         for k, v in enumerate(case):
             self.assertEqual(
                 _15_3_sum.Sollution().threeSum(v[0]), v[1])
+
+    def test_16(self):
+        import _16_3_sum_closest
+        case = [
+            ([1, 1, 1, 1], 0, 3),
+            ([0, 1, 2], 3, 3),
+            ([0, 0, 0], 1, 0),
+            ([-1, 2, 1, -4], 1, 2)
+        ]
+        for k, v in enumerate(case):
+            self.assertEqual(
+                _16_3_sum_closest.Sollution().threeSumClosest(v[0], v[1]), v[2])
+    
