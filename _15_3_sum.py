@@ -15,19 +15,20 @@ class Sollution:
             i = k + 1
             j = l - 1
 
-            while i < j:
+            while i < j :
                 r = n + nums[i] + nums[j]
-                if r < 0:
-                    i = i + 1
-                    while nums[i - 1] == nums[i]:
-                        i = i + 1
-                elif r > 0:
-                    j = j - 1
-                    while nums[j] == nums[j + 1]:
-                        j = j - 1
-                else:
+                if r == 0:
                     res.append([n, nums[i], nums[j]])
+                    
+                if r <= 0:
                     i = i + 1
+                    while nums[i - 1] == nums[i] and i < j:
+                        i = i + 1
+
+                if r >= 0:
                     j = j - 1
+                    while nums[j] == nums[j + 1] and i < j:
+                        j = j - 1
+
 
         return res
