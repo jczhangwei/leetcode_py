@@ -96,3 +96,13 @@ class TestForSolutions(unittest.TestCase):
             self.assertEqual(
                 _16_3_sum_closest.Sollution().threeSumClosest(v[0], v[1]), v[2])
     
+    def test_23(self):
+        import _23_merge_k_sorted_list
+        case = [
+            ([1, 1, 1, 1], 0, 3),
+            ([0, 1, 2], 3, 3),
+            ([0, 0, 0], 1, 0),
+            ([-1, 2, 1, -4], 1, 2)
+        ]
+        for k, v in enumerate(case):
+            self.assertEqual(_23_merge_k_sorted_list.Sollution().mergeKLists(v[0]), v[1])
