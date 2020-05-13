@@ -86,7 +86,6 @@ class Solution:
 
             if valid == len(need):
                 res.append(left)
-                
         
         return res
             
