@@ -48,6 +48,33 @@
 # @lc code=start
 class Solution:
     def checkInclusion(self, s1: str, s2: str) -> bool:
-        
-# @lc code=end
+        window = {}
+        need = {}
+        valid = 0
+        left = 0
+        right =0
 
+        for a in s1:
+            need[a] = (need.get(a) or 0) + 1
+
+        while right < len(s2):    
+            right_c = s2[right]
+            right += 1
+            if need.get(right_c) is not None:
+                window[right_c] = (window.get(right_c) or 0) + 1
+                if window[right_c] == need[right_c]:
+                    valid += 1
+
+            while valid >= len(need):
+                if right - left == len(s1):
+                    print(left, right, window, valid)
+                    return True
+                left_c = s2[left]
+                left += 1
+                if need.get(left_c) is not None:
+                    window[left_c] -= 1
+                    if window[left_c] < need[left_c]:
+                        valid -= 1
+
+        return False
+# @lc code=end
