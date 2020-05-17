@@ -32,5 +32,16 @@
 # @lc code=start
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        
+        i =0
+        t = {} 
+        while i < len(nums):
+            cur = nums[i]
+            sub = target - cur
+            sub_i = t.get(sub)
+            if sub_i is not None:
+                return [sub_i, i]
+            else:
+                t[cur] = i
+            i += 1
+            
 # @lc code=end
