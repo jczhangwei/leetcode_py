@@ -70,11 +70,53 @@ class Solution:
                     dp[i][j] = dp[i - 1][j] or dp[i-1][j - nums[i]]
 
         return dp[l - 1][t]
+    
+    def canPartition2(self, nums: List[int]) -> bool:
+        s = sum(nums)
+        l = len(nums)
+        if(s % 2 != 0 or l <= 0):
+            return False
+        t = int(s / 2)
+        dp = [[(j == 0 ) for j in range(t + 1)] for i in range(l + 1)]
+        
+        for i in range(1, l + 1):
+            for j in range(1, t + 1):
+                if j - nums[i - 1] < 0:
+                    dp[i][j] = dp[i - 1][j] 
+                else:
+                    dp[i][j] = dp[i - 1][j] or dp[i - 1][j - nums[i - 1]];
+                
+        return dp[l][t]
+
+
+    def canPartition3(self, nums: List[int]) -> bool:
+        s = sum(nums)
+        l = len(nums)
+        if(s % 2 != 0 or l <= 0):
+            return False
+        t = int(s / 2)
+    
+        dp = [False for j in range(t + 1)]
+        dp[0] = True
+
+        for i in range(0, l):
+            for j in range(t, -1, -1):
+                if j - nums[i] >= 0:
+                    dp[j] = dp[j] or dp[j - nums[i]]
+        
+        return dp[t]
+        
+
 
 # @lc code=end
 
 
-assert Solution().canPartition([]) == False
-assert Solution().canPartition([0]) == True
-assert Solution().canPartition([1, 5, 11, 5]) == True
-assert Solution().canPartition([1, 2, 3, 5]) == False
+# assert Solution().canPartition([]) == False
+# assert Solution().canPartition([0]) == True
+# assert Solution().canPartition([1, 5, 11, 5]) == True
+# assert Solution().canPartition([1, 2, 3, 5]) == False
+
+assert Solution().canPartition2([]) == False
+assert Solution().canPartition2([0]) == True
+assert Solution().canPartition2([1, 5, 11, 5]) == True
+assert Solution().canPartition2([1, 2, 3, 5]) == False
