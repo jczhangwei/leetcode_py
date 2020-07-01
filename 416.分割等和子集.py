@@ -120,3 +120,8 @@ assert Solution().canPartition2([]) == False
 assert Solution().canPartition2([0]) == True
 assert Solution().canPartition2([1, 5, 11, 5]) == True
 assert Solution().canPartition2([1, 2, 3, 5]) == False
+
+assert Solution().canPartition3([]) == False
+assert Solution().canPartition3([0]) == True
+assert Solution().canPartition3([1, 5, 11, 5]) == True
+assert Solution().canPartition3([1, 2, 3, 5]) == False
