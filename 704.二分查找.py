@@ -42,7 +42,8 @@
 # 
 # 
 #
-
+from typing import *
+import math
 # @lc code=start
 class Solution:
     def search(self, nums: List[int], target: int) -> int:
