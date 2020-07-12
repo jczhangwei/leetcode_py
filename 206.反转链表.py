@@ -37,7 +37,7 @@ class ListNode:
 #         self.val = x
 #         self.next = None
 
-class Solution:
+class Solution1:
     def reverseList(self, head: ListNode) -> ListNode:
         cur = head
         pre = None
@@ -50,7 +50,17 @@ class Solution:
         return pre
             
 
-            
+
+class Solution:
+    def reverseList(self, head: ListNode) -> ListNode:
+        def reverse(head: ListNode) -> ListNode:
+            if not head or not head.next:
+                return head
+            p = reverse(head.next)
+            head.next.next = head
+            head.next = None
+            return p
+        return reverse(head)     
 
 # @lc code=end
 
