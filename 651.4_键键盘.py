@@ -61,6 +61,13 @@
 # @lc code=start
 class Solution:
     def maxA(self, N: int) -> int:
+        dp = [0, 1]
+        for i in range(2, N + 1):
+            dp.append(dp[i- 1] + 1)
+            for j in range(3, i):
+                dp[i] = max(dp[i], dp[j - 2] * (i - j + 1))
         
+        return dp[N]
+            
 # @lc code=end
 
