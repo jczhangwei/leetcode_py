@@ -68,10 +68,10 @@ class Solution:
 # @lc code=end
 
 
-# assert Solution().strStr("hello", "ll") == 2
-# assert Solution().strStr("aaaaa", "bba") == -1
-# assert Solution().strStr("", "bba") == -1
-# assert Solution().strStr("aaaaa", "") == 0
-# assert Solution().strStr("a", "a") == 0
+assert Solution().strStr("hello", "ll") == 2
+assert Solution().strStr("aaaaa", "bba") == -1
+assert Solution().strStr("", "bba") == -1
+assert Solution().strStr("aaaaa", "") == 0
+assert Solution().strStr("a", "a") == 0
 assert Solution().strStr("aaa", "aaa") == 0
 assert Solution().strStr("mississippi", "issipi") == -1
