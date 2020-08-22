@@ -53,9 +53,19 @@ class Solution:
 
         return max(dp)
 
+    def longestValidParentheses2(self, s: str) -> int:
+        
+        return max(dp)
+
 # @lc code=end
 
 
+print(Solution().longestValidParentheses("(()"))
 print(Solution().longestValidParentheses("()"))
 print(Solution().longestValidParentheses(""))
 print(Solution().longestValidParentheses("(()))())("))
+
+print(Solution().longestValidParentheses2("(()"))
+print(Solution().longestValidParentheses2("()"))
+print(Solution().longestValidParentheses2(""))
+print(Solution().longestValidParentheses2("(()))())("))
