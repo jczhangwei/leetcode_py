@@ -52,6 +52,31 @@ class Solution:
                 res = max(res, dp[i][j])
         return res
 
+class Solution2:
+    def findLength(self, A: List[int], B: List[int]) -> int:
+        def maxLenght(a, b, length):
+            r = 0
+            m= 0
+            for i in range(length) :
+                if A[a + i] == B[b + i]:
+                    m += 1
+                    r = max(r, m) 
+                else:
+                     m = 0
+            
+            return r
+
+        r = 0
+        m = len(A)
+        n = len(B)
+        for i in range(m):
+            r = max(r, maxLenght(i, 0, min(m - i, n)))
+        for i in range(n):
+            r = max(r, maxLenght(0, i, min(n - i, m)))
+        
+        return r
+
 # @lc code=end
 
 print(Solution().findLength([1,2,3,2,1], [3,2,1,4,7]))
+print(Solution2().findLength([1,2,3,2,1], [3,2,1,4,7]))

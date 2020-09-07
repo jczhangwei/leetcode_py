@@ -74,6 +74,10 @@ class Solution:
         return dp[len(text1)][len(text2)]
 
 # @lc code=end
+# m = len(text1)
+# n = len(text2)
+# 空间复杂度 O(m * n)
+# 时间复杂度 O(m * n)
 
 assert Solution().longestCommonSubsequence("abcde","ace") == 3
 assert Solution().longestCommonSubsequence("abcdefg","abcde") == 5
