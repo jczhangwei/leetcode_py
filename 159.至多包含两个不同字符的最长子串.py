@@ -34,5 +34,20 @@ from typing import *
 
 class Solution:
     def lengthOfLongestSubstringTwoDistinct(self, s: str) -> int:
-            
+        char_count = {}
+        l = len(s)
+        i = 0
+        j = 0
+        while j < l:
+            char_count[s[j]] = (char_count.get(s[j]) or 0) + 1
+            j += 1
+            if sum(1 for x in char_count.values() if x > 0) > 2:
+                char_count[s[i]] = max(0, (char_count.get(s[i] or 0) - 1))
+                i += 1
+
+        return j - i
         # @lc code=end
+
+
+print(Solution().lengthOfLongestSubstringTwoDistinct("eceba"))
+print(Solution().lengthOfLongestSubstringTwoDistinct("ccaabbb"))
