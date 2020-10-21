@@ -41,11 +41,45 @@
 # 
 #
 from typing import *
+import random
 # @lc code=start
 # 快速排序法更有意思，必做
+
 class Solution:
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        def qsort(items, start, end, m):
+            if end - start <= m:
+                return start, end
+            middle = random.randint(start, end - 1)
+            items[start], items[middle] = items[middle], items[start]
+            
 
+            middle_value = items[start][1]
+            index = start
+            for i in range(start + 1, end):
+                if items[i][1] >= middle_value:
+                    items[index + 1], items[i] = items[i], items[index + 1]
+                    index += 1
+            
+            items[index], items[start] = items[start], items[index]
 
+            up_num = index - start
+            if up_num >= m:
+                return qsort(items, start, index, m)
+            else:
+                s, e = qsort(items, index, end, m - up_num)
+                return start, e
+
+        store = {}
+        for _, v in enumerate(nums):
+            store[v] = (store.get(v) or 0) + 1    
+        
+        items = list(store.items())
+        start, end = qsort(items, 0, len(items), k)
+        return [x[0] for x in items[start:end]]
+        
+
+class Solution2:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
         store = {}
         for _, v in enumerate(nums):
@@ -65,4 +99,4 @@ class Solution:
 
 # @lc code=end
 
-print(Solution().topKFrequent([1,1,1, 2,2,3], 2))
+print(Solution().topKFrequent([1,1,1, 2,2,3,3,3,3,4,4,4], 3))
