@@ -68,19 +68,53 @@
 # 
 # 
 #
-
+from typing import *
 # @lc code=start
-"""
 # Definition for a Node.
 class Node:
     def __init__(self, x: int, next: 'Node' = None, random: 'Node' = None):
         self.val = int(x)
         self.next = next
         self.random = random
-"""
+
 
 class Solution:
     def copyRandomList(self, head: 'Node') -> 'Node':
+        if not head:
+            return
         
+        p = Node(0)
+        p.next = head
+        while p.next:
+            cur = p.next
+            new = Node(0)
+            new.val = cur.val
+            new.next = cur.next
+            cur.next = new
+            p = new
+        
+        p = Node(0)
+        p.next = head
+        while p.next:
+            cur = p.next
+            if cur.next and cur.random:
+                cur.next.random = cur.random.next
+            p = cur.next
+
+        p = Node(0)
+        p.next = head
+        new_head = Node(0)
+        new_p = new_head
+        while p.next:
+            cur = p.next
+            if cur.next:
+                new_p.next = cur.next
+                new_p = new_p.next
+                cur.next = new_p.next
+            p = cur
+
+        return new_head.next
+
+
 # @lc code=end
 
