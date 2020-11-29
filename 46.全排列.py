@@ -14,9 +14,9 @@
 # Testcase Example:  '[1,2,3]'
 #
 # 给定一个 没有重复 数字的序列，返回其所有可能的全排列。
-# 
+#
 # 示例:
-# 
+#
 # 输入: [1,2,3]
 # 输出:
 # [
@@ -27,12 +27,28 @@
 # ⁠ [3,1,2],
 # ⁠ [3,2,1]
 # ]
-# 
+#
 #
 
+from typing import *
 # @lc code=start
+
+
 class Solution:
     def permute(self, nums: List[int]) -> List[List[int]]:
-        
+        res = []
+
+        def back(t_nums, cur):
+            if len(t_nums) <= 0:
+                res.append(cur)
+            for i, n in enumerate(t_nums):
+                back(t_nums[:i] + t_nums[i + 1:], [n] + cur)
+
+        back(nums, [])
+        return res
+
+
 # @lc code=end
 
+
+print(Solution().permute([1, 2, 3]))
