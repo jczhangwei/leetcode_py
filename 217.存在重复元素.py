@@ -35,7 +35,8 @@
 # 输出: true
 # 
 #
-
+import typing
+from typing import *;
 # @lc code=start
 class Solution:
     def containsDuplicate(self, nums: List[int]) -> bool:
